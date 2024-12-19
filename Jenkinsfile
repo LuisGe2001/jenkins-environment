@@ -1,14 +1,14 @@
 pipeline {
   agent any
   environment {
-     NAME = "Jenkins"
-     MACHINE = "Linux"
+     NAME = "Jenkins_Docker"
+     MACHINE = "Jenkins_Container"
      JAVA_OPTS="-Xms128m -Xmx512m"
   }
   stages {
     stage('Compiling') {   
       environment {
-        AUTHOR='Apasoft'
+        AUTHOR='LuisGe'
       }    
       steps {
         echo "Compiling the code"
