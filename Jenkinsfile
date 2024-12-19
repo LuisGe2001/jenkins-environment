@@ -2,7 +2,13 @@ pipeline {
   agent any
   environment {
      NAME = "Jenkins_Docker"
-     MACHINE = "Jenkins_Container"
+     MACHINE = """${
+        sh(
+          returnStdout: true,
+          script: 'uname -n'
+        )
+     }"""
+     // echo %ComputerName% (Windows)
      JAVA_OPTS="-Xms128m -Xmx512m"
   }
   stages {
